@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! Pushpita</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div class="hero">
+          <h1>HAPPY BIRTHDAY!</h1>
+          <h2>Pushpita</h2>
+          <p>Wishing you a day as lovely and amazing as you are! Thank you for being such a wonderful friend. May your year ahead be filled with endless joy, unforgettable memories, and all the love your heart can hold. Here's to celebrating you and the beautiful person you are!</p>
+        </div>
+        <div class="buttons">
+          <button type="button" id="gravity-btn">
+            Toggle gravity
+          </button>
+          <button type="button" id="colors-btn">
+            Random colors
+          </button>
+        </div>
+        <canvas id="webgl-canvas"></canvas>
+      </div>
+
+
+      
+
+      <script type="module">
+        import { Spheres1Background } from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.5/build/backgrounds/spheres1.cdn.min.js';
+        // import { balloons } from 'https://cdn.jsdelivr.net/npm/balloons-js@0.0.1/+esm'
+    
+        const canvas = document.getElementById('webgl-canvas');
+        const bg = Spheres1Background(canvas, {
+            count: 300,
+            minSize: 0.3,
+            maxSize: 1,
+            gravity: 0.5
+        });
+    
+        document.getElementById('gravity-btn').addEventListener('click', () => {
+            bg.spheres.config.gravity = bg.spheres.config.gravity === 0 ? 1 : 0;
+        });
+    
+        document.getElementById('colors-btn').addEventListener('click', () => {
+            bg.spheres.setColors([0xffffff * Math.random(), 0xffffff * Math.random(), 0xffffff * Math.random()]);
+        });
+    </script>
+    
+</body>
+</html>
